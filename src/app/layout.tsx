@@ -20,7 +20,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://web.nutrifreaks.com"),
   title: {
     default: `${site.name} – ${site.tagline}`,
     template: `%s – ${site.name}`,

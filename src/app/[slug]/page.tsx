@@ -191,6 +191,7 @@ function ContactPage() {
           <h2 className="font-display text-2xl font-semibold text-ink">Make an Enquiry</h2>
           <div className="mt-6">
             <SimpleForm
+              endpoint="/v1/contact"
               successMessage="Thanks for writing in."
               fields={[
                 { name: "name", label: "Name", required: true },
@@ -216,6 +217,7 @@ function ConsultationPage() {
       />
       <div className="container-site grid items-start gap-12 py-12 lg:grid-cols-2">
         <SimpleForm
+          endpoint="/v1/consultation"
           submitLabel="Send"
           successMessage="Consultation request received."
           fields={[
@@ -491,6 +493,7 @@ function SubscribePage() {
       <PageBanner title="Subscribe" subtitle="Enter your email below to receive updates." />
       <div className="container-site max-w-lg py-12">
         <SimpleForm
+          endpoint="/v1/subscribe"
           submitLabel="Subscribe"
           successMessage="Thanks for subscribing to NutriFreaks!"
           fields={[
@@ -506,11 +509,12 @@ function SubscribePage() {
 function LoginPage() {
   return (
     <>
-      <PageBanner title="Login" subtitle="Member login will be connected when the backend is hosted." />
+      <PageBanner title="Login" subtitle="Member accounts from the WordPress site are not on this stack yet." />
       <div className="container-site max-w-lg py-12">
         <SimpleForm
+          endpoint="/v1/login"
           submitLabel="Login"
-          successMessage="This local preview does not connect to WordPress accounts yet."
+          successMessage="Logged in."
           fields={[
             { name: "email", label: "Email", type: "email", required: true },
             { name: "password", label: "Password", type: "password", required: true },

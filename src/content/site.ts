@@ -2,7 +2,7 @@ export const site = {
   name: "NutriFreaks",
   tagline: "Customized Meals to your Doorstep",
   slogan: "The Future Of Nutrition",
-  url: "https://nutrifreaks.com",
+  url: "https://web.nutrifreaks.com",
   description:
     "NutriFreaks delivers personalized, dietician-designed meals to your doorstep in Madurai. Fat loss, diabetes reversal, muscle gain, pregnancy wellness, kids nutrition and more.",
   phone: "9422799333",

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { site } from "@/content/site";
+import { submitToApi } from "@/lib/api";
 
 const policyLinks = [
   { href: "/terms-and-conditions", label: "Terms and Conditions" },
@@ -14,10 +15,25 @@ const policyLinks = [
 
 export function Footer() {
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
+  const [pending, setPending] = useState(false);
 
-  const onSubscribe = (e: FormEvent<HTMLFormElement>) => {
+  const onSubscribe = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setDone(true);
+    setError("");
+    setPending(true);
+    const form = new FormData(e.currentTarget);
+    try {
+      await submitToApi("/v1/subscribe", {
+        name: String(form.get("name") ?? ""),
+        email: String(form.get("email") ?? ""),
+      });
+      setDone(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setPending(false);
+    }
   };
 
   return (
@@ -44,8 +60,9 @@ export function Footer() {
                 placeholder="Email"
                 className="h-11 rounded-md border border-white/20 bg-white/5 px-3 text-sm text-white placeholder:text-white/50"
               />
-              <button type="submit" className="btn-gold !py-3 text-sm">
-                SUBSCRIBE
+              {error && <p className="text-sm text-red-300">{error}</p>}
+              <button type="submit" className="btn-gold !py-3 text-sm disabled:opacity-60" disabled={pending}>
+                {pending ? "SENDING..." : "SUBSCRIBE"}
               </button>
             </form>
           )}

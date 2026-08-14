@@ -4,6 +4,9 @@ out
 .DS_Store
 ._*
 *.log
+.env
 .env*.local
 tsconfig.tsbuildinfo
 content-posts.json
+backend/data
+backend/node_modules

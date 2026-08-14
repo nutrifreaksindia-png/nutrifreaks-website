@@ -1,19 +1,37 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { submitToApi } from "@/lib/api";
 
 type Props = {
+  endpoint: string;
   fields: { name: string; label: string; type?: string; required?: boolean; textarea?: boolean }[];
   submitLabel?: string;
   successMessage: string;
 };
 
-export function SimpleForm({ fields, submitLabel = "Send", successMessage }: Props) {
+export function SimpleForm({ endpoint, fields, submitLabel = "Send", successMessage }: Props) {
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
+  const [pending, setPending] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setDone(true);
+    setError("");
+    setPending(true);
+    const form = new FormData(e.currentTarget);
+    const payload: Record<string, string> = {};
+    for (const field of fields) {
+      payload[field.name] = String(form.get(field.name) ?? "");
+    }
+    try {
+      await submitToApi(endpoint, payload);
+      setDone(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setPending(false);
+    }
   };
 
   if (done) {
@@ -47,8 +65,9 @@ export function SimpleForm({ fields, submitLabel = "Send", successMessage }: Pro
           )}
         </label>
       ))}
-      <button type="submit" className="btn-gold w-full md:w-auto">
-        {submitLabel}
+      {error && <p className="text-sm text-red-600">{error}</p>}
+      <button type="submit" className="btn-gold w-full md:w-auto disabled:opacity-60" disabled={pending}>
+        {pending ? "Sending..." : submitLabel}
       </button>
     </form>
   );
