@@ -18,9 +18,7 @@ export default function HomePage() {
             <img src="/images/hero/right-phone.gif" alt="" className="w-full" />
           </div>
         </Link>
-        <div className="container-site py-8">
-          <HomeCarousel />
-        </div>
+        <HomeCarousel />
       </section>
 
       <section className="bg-white py-12 md:py-16">
@@ -107,7 +105,7 @@ function HomeCarousel() {
     { src: "/images/plans/muscle-poster.jpg", alt: "Muscle gain meals" },
   ];
   return (
-    <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-3">
+    <div className="grid w-full grid-cols-1 sm:grid-cols-3">
       {slides.map((s) => (
         <Image
           key={s.src}
@@ -115,7 +113,7 @@ function HomeCarousel() {
           alt={s.alt}
           width={900}
           height={984}
-          className="w-full rounded-2xl object-cover shadow-card"
+          className="h-full w-full object-cover"
         />
       ))}
     </div>
