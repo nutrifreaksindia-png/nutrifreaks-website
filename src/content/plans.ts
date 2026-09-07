@@ -16,22 +16,22 @@ export const healthGoals: {
   image: string;
   href: string;
 }[] = [
-  { slug: "fat-loss", title: "Fat Loss", image: "/images/goals/fat-loss.jpg", href: "/fat-loss-meals" },
-  { slug: "diabetes", title: "Diabetes Reversal", image: "/images/goals/diabetes.jpg", href: "/diabetes-reversal-meals-plan-2" },
-  { slug: "muscle", title: "Muscle Gain", image: "/images/goals/muscle.jpg", href: "/muscle-gain-meals-plan-2" },
-  { slug: "lifestyle", title: "Healthy Lifestyle", image: "/images/goals/lifestyle.jpg", href: "/healthy-lifestyle" },
-  { slug: "pregnancy", title: "Pregnancy Wellness", image: "/images/goals/pregnancy.jpg", href: "/pregnancy-wellness-page" },
-  { slug: "kids", title: "Kids Nutrition", image: "/images/goals/kids.jpg", href: "/kids-nutrition" },
-  { slug: "elderly", title: "Elderly Nutrition", image: "/images/goals/elderly.jpg", href: "/elderly-and-kids-nutrition" },
-  { slug: "recovery", title: "Post Illness / Surgery Recovery", image: "/images/goals/recovery.jpg", href: "/post-illness-surgery-recovery-page" },
-  { slug: "vitamins", title: "Vitamins & Mineral Optimisation", image: "/images/goals/vitamins.jpg", href: "/vitamins-and-mineral-optimzation" },
+  { slug: "fat-loss", title: "Fat loss", image: "/images/goals/fat-loss.jpg", href: "/fat-loss-meals" },
+  { slug: "diabetes", title: "Diabetes reversal", image: "/images/goals/diabetes.jpg", href: "/diabetes-reversal-meals-plan-2" },
+  { slug: "muscle", title: "Muscle gain", image: "/images/goals/muscle.jpg", href: "/muscle-gain-meals-plan-2" },
+  { slug: "lifestyle", title: "Healthy lifestyle", image: "/images/goals/lifestyle.jpg", href: "/healthy-lifestyle" },
+  { slug: "pregnancy", title: "Pregnancy wellness", image: "/images/goals/pregnancy.jpg", href: "/pregnancy-wellness-page" },
+  { slug: "kids", title: "Kids nutrition", image: "/images/goals/kids.jpg", href: "/kids-nutrition" },
+  { slug: "elderly", title: "Elderly nutrition", image: "/images/goals/elderly.jpg", href: "/elderly-and-kids-nutrition" },
+  { slug: "recovery", title: "Post illness / surgery recovery", image: "/images/goals/recovery.jpg", href: "/post-illness-surgery-recovery-page" },
+  { slug: "vitamins", title: "Vitamins & mineral optimisation", image: "/images/goals/vitamins.jpg", href: "/vitamins-and-mineral-optimzation" },
 ];
 
 export const plans: Record<string, Plan> = {
   "fat-loss-meals": {
     slug: "fat-loss-meals",
-    title: "Low-Carb Meal Plans by NutriFreaks",
-    eyebrow: "Fat Loss",
+    title: "Low-carb meal plans by NutriFreaks",
+    eyebrow: "Fat loss",
     summary:
       "Our Low-Carb Meal Plans are created for sustainable fat loss, steady energy, and clean eating. We prepare every meal fresh using balanced portions of protein, healthy fats, and fiber-rich vegetables, while keeping carbohydrates controlled.",
     image: "/images/plans/fat-loss.webp",
@@ -39,7 +39,7 @@ export const plans: Record<string, Plan> = {
     goalImage: "/images/goals/fat-loss.jpg",
     sections: [
       {
-        heading: "Fat Loss Meals",
+        heading: "Fat loss meals",
         body: "Our Fat Loss Meal plan focuses on reducing overall calories while keeping meals filling, nutritious, and satisfying. We balance lean proteins, fiber-rich vegetables, and controlled carbohydrates to help your body burn fat effectively without feeling deprived.",
       },
       {
@@ -53,7 +53,7 @@ export const plans: Record<string, Plan> = {
         ],
       },
       {
-        heading: "Keto (Ketogenic) Meals",
+        heading: "Keto (ketogenic) meals",
         body: "Our Keto plan is a high-fat, very-low-carb approach that shifts your body into ketosis — a metabolic state where fat becomes the primary source of fuel. We prepare macro-balanced Keto meals that make it easy to stay in ketosis without calculating or restricting too much.",
       },
       {
@@ -66,11 +66,11 @@ export const plans: Record<string, Plan> = {
         ],
       },
       {
-        heading: "Paleo Meals",
+        heading: "Paleo meals",
         body: "Our Paleo plan focuses on whole, natural foods. We remove processed ingredients, sugars, refined carbs, and artificial additives, giving your body clean fuel that supports fat loss, gut health, and improved daily energy.",
       },
       {
-        heading: "Why Choose Us for Low-Carb, Keto & Paleo?",
+        heading: "Why choose us for low-carb, keto & paleo?",
         bullets: [
           "Fresh, daily-prepared meals delivered hot to your doorstep.",
           "Dietician-designed plans tailored to your goals and preferences.",
@@ -83,7 +83,7 @@ export const plans: Record<string, Plan> = {
   },
   "diabetes-reversal-meals-plan-2": {
     slug: "diabetes-reversal-meals-plan-2",
-    title: "Diabetes Reversal Meals Plan",
+    title: "Diabetes reversal meals plan",
     eyebrow: "Blood sugar support",
     summary:
       "Our Diabetes Reversal Meals are designed to support healthier, more stable blood sugar levels. Each meal is prepared with low-glycemic ingredients and balanced nutrition to help you experience smoother energy, better control and easier daily consistency.",
@@ -116,7 +116,7 @@ export const plans: Record<string, Plan> = {
   },
   "muscle-gain-meals-plan-2": {
     slug: "muscle-gain-meals-plan-2",
-    title: "Muscle Gain Meals Plan",
+    title: "Muscle gain meals plan",
     eyebrow: "Strength & recovery",
     summary:
       "Our Muscle Gain Meals are created to help you build lean muscle, improve recovery and support better performance. These meals balance protein, energy-rich carbs and the right fats to help you progress consistently with your training.",
@@ -155,7 +155,7 @@ export const plans: Record<string, Plan> = {
   },
   "healthy-lifestyle": {
     slug: "healthy-lifestyle",
-    title: "Healthy Lifestyle Meals Plan",
+    title: "Healthy lifestyle meals plan",
     eyebrow: "Everyday wellness",
     summary:
       "A healthy life begins with calm, consistent choices. Our Healthy Lifestyle Meals are designed for individuals who wish to nourish their bodies with thoughtful, balanced food — meals that promote clarity, comfort and long-term wellbeing.",
@@ -163,11 +163,11 @@ export const plans: Record<string, Plan> = {
     goalImage: "/images/goals/lifestyle.jpg",
     sections: [
       {
-        heading: "What This Plan Represents",
+        heading: "What this plan represents",
         body: "This plan is shaped around the idea of gentle nourishment — food that supports you without overwhelming you. Each meal combines clean proteins, steady carbohydrates and vibrant vegetables to create a sense of balance and comfort.",
       },
       {
-        heading: "How It Works",
+        heading: "How it works",
         bullets: [
           "Balanced meals that maintain steady energy from morning to evening.",
           "Thoughtfully portioned ingredients that support metabolism and clarity.",
@@ -175,18 +175,18 @@ export const plans: Record<string, Plan> = {
         ],
       },
       {
-        heading: "How We Support You",
+        heading: "How we support you",
         body: "We begin by understanding your routine, your preferences and how you want to feel each day. Vegetarian, vegan, lactose-free and gluten-free adaptations are provided with equal attention and care.",
       },
       {
-        heading: "Why This Works",
+        heading: "Why this works",
         body: "Healthy living is not built on extremes — it is shaped by repeated, gentle decisions. Over time, your body responds with better focus, lighter movement and a renewed sense of wellbeing.",
       },
     ],
   },
   "pregnancy-wellness-page": {
     slug: "pregnancy-wellness-page",
-    title: "Pregnancy Wellness Meals Plan",
+    title: "Pregnancy wellness meals plan",
     eyebrow: "For you and your baby",
     summary:
       "This is a gentle, reliable meal service made to nourish you and your baby. We prepare comforting, nutrient-focused meals so you can enjoy more energy, easier digestion and less mealtime stress.",
@@ -214,7 +214,7 @@ export const plans: Record<string, Plan> = {
   },
   "kids-nutrition": {
     slug: "kids-nutrition",
-    title: "Kids Nutrition Meals",
+    title: "Kids nutrition meals",
     eyebrow: "Growing with care",
     summary:
       "Growing children need more than just food — they need the right balance of nourishment to support learning, immunity, and steady physical development. Our Kids Nutrition Meals are designed to make healthy eating simple, enjoyable, and dependable for everyday growth.",
@@ -222,7 +222,7 @@ export const plans: Record<string, Plan> = {
     goalImage: "/images/goals/kids.jpg",
     sections: [
       {
-        heading: "How These Meals Support Kids",
+        heading: "How these meals support kids",
         body: "We focus on balanced energy, gentle flavours, and nutrient-rich ingredients that help children stay active, attentive, and resilient. Meals are planned to avoid heaviness while still delivering the nutrition needed for growth and immunity.",
       },
       {
@@ -233,7 +233,7 @@ export const plans: Record<string, Plan> = {
   },
   "elderly-and-kids-nutrition": {
     slug: "elderly-and-kids-nutrition",
-    title: "Elderly & Kids Nutrition Meals",
+    title: "Elderly & kids nutrition meals",
     eyebrow: "Nutrition is care",
     summary:
       "Our Elderly & Kids Meals are designed to offer comfort, safety, and nourishment for the two groups that need it the most. We prepare meals that support steady growth for children and gentle, easy-to-digest nutrition for elders.",
@@ -241,7 +241,7 @@ export const plans: Record<string, Plan> = {
     goalImage: "/images/goals/elderly.jpg",
     sections: [
       {
-        heading: "Kids Nutrition Meals",
+        heading: "Kids nutrition meals",
         body: "Children need meals that fuel growth, concentration and immune strength. We create colourful, mild-flavoured meals that make healthy eating easy and enjoyable for growing kids.",
         bullets: [
           "Balanced energy for learning, play and steady growth.",
@@ -251,7 +251,7 @@ export const plans: Record<string, Plan> = {
         ],
       },
       {
-        heading: "Elderly Nutrition Meals",
+        heading: "Elderly nutrition meals",
         body: "Elders need meals that are gentle, nourishing and easy to digest. Our elderly-focused meals support strength, comfort and wellbeing while addressing common concerns such as weaker digestion, reduced appetite and nutrient deficiencies.",
         bullets: [
           "Soft-textured meals that are comfortable to chew and digest.",
@@ -261,14 +261,14 @@ export const plans: Record<string, Plan> = {
         ],
       },
       {
-        heading: "How We Personalise These Meals",
+        heading: "How we personalise these meals",
         body: "Every child and elder has unique needs. We adjust portion sizes, flavours, textures and ingredients to ensure comfort, safety and enjoyment. Our team also keeps track of allergies, dislikes and medical guidelines.",
       },
     ],
   },
   "vitamins-and-mineral-optimzation": {
     slug: "vitamins-and-mineral-optimzation",
-    title: "Vitamins & Minerals Optimisation",
+    title: "Vitamins & minerals optimisation",
     eyebrow: "Food-first nutrition",
     summary:
       "Our Vitamins & Minerals Optimisation meals are designed to support everyday health by addressing common nutritional gaps through food-first nutrition. Each meal focuses on naturally nutrient-rich ingredients that help improve energy levels, immunity, bone health, and overall metabolic balance.",
@@ -287,7 +287,7 @@ export const plans: Record<string, Plan> = {
   },
   "customized-meals-plan": {
     slug: "customized-meals-plan",
-    title: "Customized Meal Plan",
+    title: "Customized meal plan",
     eyebrow: "Nutrition that fits you",
     summary:
       "Nutrition that fits you — not the other way around. Our Customized Diet Meals are tailored to your body, goals and lifestyle. We combine clinical insight with practical cooking to deliver meals that are effective, enjoyable and easy to follow.",
@@ -319,15 +319,15 @@ export const plans: Record<string, Plan> = {
   },
   "customized-diet-meals": {
     slug: "customized-diet-meals",
-    title: "Customized Diets",
-    eyebrow: "Your Diet, Your Way",
+    title: "Customized diets",
+    eyebrow: "Your diet, your way",
     summary:
       "At NutriFreaks, we know that one size doesn’t fit all. That’s why we offer fully customizable meal plans tailored to your unique dietary needs and preferences.",
     image: "/images/gallery/custom-1.jpg",
     goalImage: "/images/gallery/custom-old.png",
     sections: [
       {
-        heading: "Why Choose a Customized Diet Plan?",
+        heading: "Why choose a customized diet plan?",
         bullets: [
           "Personalization based on your health goals, dietary needs, and preferences",
           "Flexible meals that fit into your daily schedule",
@@ -343,7 +343,7 @@ export const plans: Record<string, Plan> = {
   },
   "post-illness-surgery-recovery-page": {
     slug: "post-illness-surgery-recovery-page",
-    title: "Post Illness & Post Surgery Recovery Meals",
+    title: "Post illness & post surgery recovery meals",
     eyebrow: "Gentle recovery nutrition",
     summary:
       "Recovery meals are designed to support healing with easy-to-digest, nutrient-dense food. We personalise texture, portion size and timing so meals support recovery rather than causing discomfort.",
@@ -363,11 +363,11 @@ export const plans: Record<string, Plan> = {
 };
 
 export const mealPlanCards = [
-  { title: "Meal Plan for Fat Loss", href: "/fat-loss-meals", image: "/images/gallery/fat-loss-old.jpg" },
-  { title: "Meal Plan for Diabetes Reversal", href: "/diabetes-reversal-meals-plan-2", image: "/images/gallery/diabetes-old.jpg" },
-  { title: "Meal Plan for Weight Gain or Body Building", href: "/muscle-gain-meals-plan-2", image: "/images/gallery/weight-gain-old.jpg" },
-  { title: "Meal Plan for Healthy Lifestyle", href: "/healthy-lifestyle", image: "/images/gallery/lifestyle-old.jpg" },
-  { title: "Customized Diet Plan", href: "/customized-meals-plan", image: "/images/gallery/custom-old.png" },
-  { title: "Meal Plan for Elderly and Kids Nutrition", href: "/elderly-and-kids-nutrition", image: "/images/gallery/elderly-old.png" },
-  { title: "Meal Plan for Pregnancy Wellness", href: "/pregnancy-wellness-page", image: "/images/gallery/pregnancy-old.jpg" },
+  { title: "Meal plan for fat loss", href: "/fat-loss-meals", image: "/images/gallery/fat-loss-old.jpg" },
+  { title: "Meal plan for diabetes reversal", href: "/diabetes-reversal-meals-plan-2", image: "/images/gallery/diabetes-old.jpg" },
+  { title: "Meal plan for weight gain or body building", href: "/muscle-gain-meals-plan-2", image: "/images/gallery/weight-gain-old.jpg" },
+  { title: "Meal plan for healthy lifestyle", href: "/healthy-lifestyle", image: "/images/gallery/lifestyle-old.jpg" },
+  { title: "Customized diet plan", href: "/customized-meals-plan", image: "/images/gallery/custom-old.png" },
+  { title: "Meal plan for elderly and kids nutrition", href: "/elderly-and-kids-nutrition", image: "/images/gallery/elderly-old.png" },
+  { title: "Meal plan for pregnancy wellness", href: "/pregnancy-wellness-page", image: "/images/gallery/pregnancy-old.jpg" },
 ];

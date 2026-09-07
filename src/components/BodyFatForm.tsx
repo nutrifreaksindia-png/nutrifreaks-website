@@ -36,11 +36,11 @@ export function BodyFatForm() {
   };
 
   return (
-    <div className="container-site max-w-lg py-12">
+    <div className="container-site-narrow py-12">
       <form onSubmit={onSubmit} className="space-y-4">
         <label className="block text-sm font-medium">
           Sex
-          <select name="sex" className="mt-1 h-11 w-full rounded-lg border border-black/10 px-3">
+          <select name="sex" className="input-field mt-1 h-11">
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
@@ -58,7 +58,7 @@ export function BodyFatForm() {
               type="number"
               step="0.1"
               required={name !== "hip"}
-              className="mt-1 h-11 w-full rounded-lg border border-black/10 px-3"
+              className="input-field mt-1 h-11"
             />
           </label>
         ))}
@@ -66,7 +66,7 @@ export function BodyFatForm() {
           Calculate
         </button>
       </form>
-      {result && <p className="mt-6 rounded-xl bg-cream p-4 font-semibold text-ink">{result}</p>}
+      {result && <p className="card-interactive mt-6 p-4 font-semibold text-gold">{result}</p>}
     </div>
   );
 }

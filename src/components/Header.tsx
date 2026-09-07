@@ -17,8 +17,8 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-black text-white">
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 md:px-8 md:py-4">
+    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/95 text-white backdrop-blur-md">
+      <div className="container-site flex items-center justify-between gap-4 py-3 md:py-4">
         <Link href="/" className="shrink-0" aria-label="NutriFreaks home">
           <Image
             src="/images/logo-white.png"
@@ -35,9 +35,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-[15px] font-medium transition hover:text-gold ${
-                isActive(item.href) ? "text-gold" : "text-white"
-              }`}
+              className={`nav-link ${isActive(item.href) ? "text-gold" : "text-white"}`}
             >
               {item.label}
             </Link>
@@ -48,12 +46,12 @@ export function Header() {
           <Link
             href="/login"
             aria-label="Login"
-            className="hidden rounded-full p-2 text-white hover:text-gold md:inline-flex"
+            className="hidden rounded-full p-2 text-white transition-all duration-200 hover:text-gold hover:drop-shadow-[0_0_10px_rgba(255,205,87,0.75)] md:inline-flex"
           >
             <UserIcon />
           </Link>
           <Link href="/book-free-consultation" className="btn-gold !px-5 !py-2.5 text-sm md:!px-7 md:!py-3">
-            free consultation
+            Free consultation
           </Link>
           <button
             type="button"
@@ -74,7 +72,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-lg px-3 py-3 text-white hover:bg-white/10"
+                  className="block rounded-lg px-3 py-3 text-white transition-all duration-200 hover:bg-white/5 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}

@@ -48,17 +48,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     contact: "Contact",
     gallery: "Gallery",
     blog: "Blog",
-    "choose-your-health-goal": "Choose Your Health Goal",
-    "meal-plans": "Meal Plans",
-    "book-free-consultation": "Book Free Consultation",
-    "food-facts-and-myths": "Food: Facts and Myths",
-    "english-blogs": "English Blogs",
-    "tamil-blogs": "Tamil Blogs",
+    "choose-your-health-goal": "Choose your health goal",
+    "meal-plans": "Meal plans",
+    "book-free-consultation": "Book free consultation",
+    "food-facts-and-myths": "Food: facts and myths",
+    "english-blogs": "English blogs",
+    "tamil-blogs": "Tamil blogs",
     subscribe: "Subscribe",
     login: "Login",
-    "body-fat-calculator": "Body Fat Calculator",
-    "all-meal-plans": "All Meal Plans",
-    "our-policies": "Our Policies",
+    "body-fat-calculator": "Body fat calculator",
+    "all-meal-plans": "All meal plans",
+    "our-policies": "Our policies",
   };
   return { title: titles[slug] ?? slug };
 }
@@ -108,7 +108,7 @@ export default async function CmsPage({ params }: Props) {
 
 function PageBanner({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
-    <div className="bg-black py-12 text-white md:py-16">
+    <div className="page-banner">
       <div className="container-site">
         <h1 className="font-display text-3xl font-semibold md:text-5xl">{title}</h1>
         {subtitle && <p className="mt-3 max-w-2xl text-lg text-white/70">{subtitle}</p>}
@@ -120,8 +120,8 @@ function PageBanner({ title, subtitle }: { title: string; subtitle?: string }) {
 function AboutPage() {
   return (
     <>
-      <PageBanner title="About Us" subtitle="Precision-nutrition meals, delivered with care." />
-      <div className="container-site prose-like max-w-3xl space-y-8 py-12 text-lg leading-relaxed text-muted">
+      <PageBanner title="About us" subtitle="Precision-nutrition meals, delivered with care." />
+      <div className="container-site-narrow space-y-8 py-12 text-lg leading-relaxed text-muted">
         <p>
           NutriFreaks is a precision-nutrition meal service dedicated to helping individuals achieve sustainable health
           outcomes through scientifically designed food. Our approach combines dietician expertise, high-quality
@@ -137,7 +137,7 @@ function AboutPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-display text-2xl font-semibold text-ink">How Our Meals Are Designed</h2>
+          <h2 className="font-display text-2xl font-semibold text-ink">How our meals are designed</h2>
           <p className="mt-3">
             Every NutriFreaks meal is thoughtfully crafted with precision. Ingredients are measured before cooking,
             macronutrients are balanced, and calorie control is maintained to ensure each meal aligns with your
@@ -146,7 +146,7 @@ function AboutPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-display text-2xl font-semibold text-ink">Our Delivery & Service Model</h2>
+          <h2 className="font-display text-2xl font-semibold text-ink">Our delivery & service model</h2>
           <p className="mt-3">
             From our curated menus to doorstep delivery, NutriFreaks focuses on making healthy eating simple and
             reliable. We also operate specialised models such as homemaker-powered kitchens and hospital meal services
@@ -154,7 +154,7 @@ function AboutPage() {
           </p>
         </section>
         <section>
-          <h2 className="font-display text-2xl font-semibold text-ink">Our Mission</h2>
+          <h2 className="font-display text-2xl font-semibold text-ink">Our mission</h2>
           <p className="mt-3">
             NutriFreaks exists to make nutrition simple, accessible, and sustainable. We believe that long-term health
             starts with the right daily habits, and our goal is to empower individuals with meals that are wholesome,
@@ -170,25 +170,25 @@ function AboutPage() {
 function ContactPage() {
   return (
     <>
-      <PageBanner title="Contact Us" subtitle={`We currently provide our meals service in ${site.city}.`} />
+      <PageBanner title="Contact us" subtitle={`We currently provide our meals service in ${site.city}.`} />
       <div className="container-site grid gap-12 py-12 lg:grid-cols-2">
         <div>
           <p className="text-lg text-muted">
-            Contact Number:{" "}
-            <a className="font-semibold text-ink" href={`tel:${site.phoneTel}`}>
+            Contact number:{" "}
+            <a className="font-semibold text-gold transition-all hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]" href={`tel:${site.phoneTel}`}>
               {site.phone}
             </a>
           </p>
           <p className="mt-2 text-lg text-muted">
-            Email Us:{" "}
-            <a className="font-semibold text-ink" href={`mailto:${site.email}`}>
+            Email us:{" "}
+            <a className="font-semibold text-gold transition-all hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]" href={`mailto:${site.email}`}>
               {site.email}
             </a>
           </p>
           <p className="mt-6 text-muted">{site.address}</p>
         </div>
         <div>
-          <h2 className="font-display text-2xl font-semibold text-ink">Make an Enquiry</h2>
+          <h2 className="font-display text-2xl font-semibold text-ink">Make an enquiry</h2>
           <div className="mt-6">
             <SimpleForm
               endpoint="/v1/contact"
@@ -196,8 +196,8 @@ function ContactPage() {
               fields={[
                 { name: "name", label: "Name", required: true },
                 { name: "email", label: "Email", type: "email", required: true },
-                { name: "phone", label: "Phone Number", type: "tel", required: true },
-                { name: "pincode", label: "Pin Code", required: true },
+                { name: "phone", label: "Phone number", type: "tel", required: true },
+                { name: "pincode", label: "Pin code", required: true },
                 { name: "message", label: "Message", textarea: true, required: true },
               ]}
             />
@@ -212,8 +212,8 @@ function ConsultationPage() {
   return (
     <>
       <PageBanner
-        title="Book Your Free Consultation"
-        subtitle="One of our qualified Nutrition Expert will call your number for a free consultation"
+        title="Book your free consultation"
+        subtitle="One of our qualified nutrition experts will call your number for a free consultation"
       />
       <div className="container-site grid items-start gap-12 py-12 lg:grid-cols-2">
         <SimpleForm
@@ -221,9 +221,9 @@ function ConsultationPage() {
           submitLabel="Send"
           successMessage="Consultation request received."
           fields={[
-            { name: "firstName", label: "First Name", required: true },
-            { name: "lastName", label: "Last Name", required: true },
-            { name: "mobile", label: "Mobile Number", type: "tel", required: true },
+            { name: "firstName", label: "First name", required: true },
+            { name: "lastName", label: "Last name", required: true },
+            { name: "mobile", label: "Mobile number", type: "tel", required: true },
             { name: "email", label: "Email", type: "email", required: true },
           ]}
         />
@@ -232,7 +232,7 @@ function ConsultationPage() {
           alt="Nutrition specialist"
           width={640}
           height={640}
-          className="w-full rounded-2xl object-cover shadow-card"
+          className="w-full rounded-2xl border border-white/10 bg-black object-cover transition-all duration-300 hover:scale-[1.01] hover:border-gold/70 hover:shadow-neon"
         />
       </div>
     </>
@@ -242,25 +242,27 @@ function ConsultationPage() {
 function GoalsPage() {
   return (
     <>
-      <PageBanner title="Choose Your Health Goal" subtitle="to view the meal plans suitable for you" />
+      <PageBanner title="Choose your health goal" subtitle="To view the meal plans suitable for you" />
       <div className="container-site py-12">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {healthGoals.map((g) => (
-            <Link key={g.slug} href={g.href} className="group overflow-hidden rounded-2xl bg-black shadow-card">
-              <Image
-                src={g.image}
-                alt={g.title}
-                width={600}
-                height={1000}
-                className="aspect-[3/5] w-full object-cover transition duration-500 group-hover:scale-105"
-              />
+            <Link key={g.slug} href={g.href} className="goal-card group">
+              <div className="relative aspect-[9/16] w-full">
+                <Image
+                  src={g.image}
+                  alt={g.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="goal-card-image"
+                />
+              </div>
             </Link>
           ))}
         </div>
-        <div className="mt-14 rounded-2xl bg-cream p-8 text-center">
+        <div className="panel-interactive mt-14 p-8 text-center">
           <h2 className="font-display text-2xl font-semibold text-ink">Not matching your requirements?</h2>
           <Link href="/book-free-consultation" className="btn-gold mt-6">
-            Customize Yourself
+            Customize yourself
           </Link>
         </div>
       </div>
@@ -272,14 +274,14 @@ function MealPlansPage() {
   return (
     <>
       <PageBanner
-        title="What’s your Health Goal?"
+        title="What’s your health goal?"
         subtitle="Let us know your health goal so that we can provide you with the exact diet meals to your doorstep."
       />
       <div className="container-site grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
         {mealPlanCards.map((c) => (
-          <Link key={c.href} href={c.href} className="overflow-hidden rounded-2xl bg-white shadow-card">
-            <Image src={c.image} alt={c.title} width={600} height={900} className="aspect-[2/3] w-full object-cover" />
-            <h2 className="p-4 font-display text-lg font-semibold text-ink">{c.title}</h2>
+          <Link key={c.href} href={c.href} className="card-interactive group overflow-hidden">
+            <Image src={c.image} alt={c.title} width={600} height={900} className="aspect-[2/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+            <h2 className="p-4 font-display text-lg font-semibold text-ink transition-colors group-hover:text-gold">{c.title}</h2>
           </Link>
         ))}
       </div>
@@ -290,26 +292,26 @@ function MealPlansPage() {
 function AllMealPlansPage() {
   return (
     <>
-      <PageBanner title="All Meal Plans" subtitle="Low-carb meals with flexible packages." />
+      <PageBanner title="All meal plans" subtitle="Low-carb meals with flexible packages." />
       <div className="container-site py-12">
-        <h2 className="font-display text-3xl font-semibold">Low-carb Meals</h2>
+        <h2 className="font-display text-3xl font-semibold">Low-carb meals</h2>
         <p className="mt-3 text-muted">Minimal carbohydrates, focused on proteins, healthy fats, and fiber-rich veggies</p>
         <ul className="mt-6 grid gap-2 text-muted md:grid-cols-2">
           {[
             "Less than 550 calories per meal",
-            "Less than 25% Calories from Carbs",
-            "Rich in Protein, Fiber & Healthy Fats",
-            "Guaranteed Results",
-            "Expert Follow-up",
-            "Homely Taste",
+            "Less than 25% calories from carbs",
+            "Rich in protein, fiber & healthy fats",
+            "Guaranteed results",
+            "Expert follow-up",
+            "Homely taste",
           ].map((i) => (
             <li key={i}>• {i}</li>
           ))}
         </ul>
-        <h3 className="mt-10 font-display text-xl font-semibold">Dietary Preferences</h3>
+        <h3 className="mt-10 font-display text-xl font-semibold">Dietary preferences</h3>
         <div className="mt-3 flex flex-wrap gap-2">
           {dietaryPreferences.map((d) => (
-            <span key={d} className="rounded-full bg-cream px-4 py-2 text-sm font-medium">
+            <span key={d} className="rounded-full border border-white/10 bg-black px-4 py-2 text-sm font-medium transition-all duration-200 hover:border-gold/70 hover:text-gold hover:shadow-neon">
               {d}
             </span>
           ))}
@@ -317,7 +319,7 @@ function AllMealPlansPage() {
         <h3 className="mt-10 font-display text-xl font-semibold">Packages</h3>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           {packages.map((p) => (
-            <div key={p.name} className="rounded-2xl border border-black/10 p-6">
+            <div key={p.name} className="card-interactive p-6">
               {p.badge && <p className="text-sm font-semibold text-navy">{p.badge}</p>}
               <h4 className="mt-1 font-display text-2xl">{p.name}</h4>
               <p className="text-muted">{p.detail}</p>
@@ -329,10 +331,10 @@ function AllMealPlansPage() {
         </p>
         <div className="mt-8 flex gap-3">
           <Link href="/choose-your-health-goal" className="btn-gold">
-            Get Menus
+            Get menus
           </Link>
           <Link href="/book-free-consultation" className="btn-outline">
-            Get Quote
+            Get quote
           </Link>
         </div>
       </div>
@@ -369,7 +371,7 @@ function GalleryPage() {
             alt="NutriFreaks gallery"
             width={800}
             height={1000}
-            className="mb-4 w-full break-inside-avoid rounded-xl object-cover"
+            className="gallery-item"
           />
         ))}
       </div>
@@ -380,10 +382,10 @@ function GalleryPage() {
 function FoodFactsPage() {
   return (
     <>
-      <PageBanner title="Food: Facts and Myths" />
+      <PageBanner title="Food: facts and myths" />
       <div className="container-site grid gap-10 py-12 lg:grid-cols-2">
-        <div className="rounded-2xl bg-cream p-8">
-          <h2 className="font-display text-2xl font-semibold">Welcome to Our Blogs!</h2>
+        <div className="panel-interactive p-8">
+          <h2 className="font-display text-2xl font-semibold">Welcome to our blogs!</h2>
           <p className="mt-4 text-muted">
             Dive deep into the world of health, nutrition, and food science with our expertly curated blogs. Available
             in both English and Tamil, these blogs are packed with valuable insights to guide your dietary choices.
@@ -391,14 +393,14 @@ function FoodFactsPage() {
           <p className="mt-4 text-muted">Subscribe now – It’s free! Let’s debunk myths and discover the facts, together.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/english-blogs" className="btn-gold">
-              English Blogs
+              English blogs
             </Link>
             <Link href="/subscribe" className="btn-outline">
-              Subscribe – It’s Free
+              Subscribe – it’s free
             </Link>
           </div>
         </div>
-        <div className="rounded-2xl bg-black p-8 text-white">
+        <div className="panel-interactive border-gold/20 bg-black p-8 text-white">
           <h2 className="font-display text-2xl font-semibold">உணவு: உண்மைகளும், புனைவுகளும்</h2>
           <p className="mt-4 text-white/75">
             எங்கள் நிபுணத்துவம் வாய்ந்த பதிவுகளின் வழி உடல்நலம், ஊட்டச்சத்து மற்றும் உணவு அறிவியல் உலகில் மூழ்குவதற்கு
@@ -416,14 +418,14 @@ function FoodFactsPage() {
 
 function BlogIndex({ lang }: { lang: "all" | "en" | "ta" }) {
   const list = lang === "all" ? getPosts() : getPostsByLang(lang);
-  const title = lang === "en" ? "English Blogs" : lang === "ta" ? "Tamil Blogs" : "Blog";
+  const title = lang === "en" ? "English blogs" : lang === "ta" ? "Tamil blogs" : "Blog";
   return (
     <>
       <PageBanner title={title} subtitle="Nutrition ABC and food science, in English and Tamil." />
       <div className="container-site grid gap-6 py-12 md:grid-cols-2">
         {list.map((p) => (
-          <Link key={p.slug} href={`/${encodeURIComponent(p.slug)}`} className="rounded-2xl border border-black/10 p-6 hover:shadow-card">
-            <p className="text-xs uppercase tracking-wide text-muted">{p.categories.join(" · ")}</p>
+          <Link key={p.slug} href={`/${encodeURIComponent(p.slug)}`} className="link-card">
+            <p className="text-xs tracking-wide text-muted">{p.categories.join(" · ")}</p>
             <h2 className="mt-2 font-display text-xl font-semibold text-ink">{p.title}</h2>
             <p className="mt-2 line-clamp-3 text-sm text-muted">{p.excerpt}</p>
             <p className="mt-4 text-xs text-muted">{p.date}</p>
@@ -438,7 +440,7 @@ function BlogPost({ post }: { post: ReturnType<typeof getPosts>[number] }) {
   return (
     <article>
       <PageBanner title={post.title} subtitle={post.categories.join(" · ")} />
-      <div className="container-site max-w-3xl py-12">
+      <div className="container-site-narrow py-12">
         <p className="text-sm text-muted">{post.date} · NutriFreaks</p>
         <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink">
           {post.paragraphs.map((para) =>
@@ -451,7 +453,7 @@ function BlogPost({ post }: { post: ReturnType<typeof getPosts>[number] }) {
             ),
           )}
         </div>
-        <Link href="/blog" className="mt-10 inline-block font-semibold text-navy">
+        <Link href="/blog" className="mt-10 inline-block font-semibold text-gold transition-all hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]">
           ← Back to blogs
         </Link>
       </div>
@@ -464,7 +466,7 @@ function PolicyPage({ slug }: { slug: string }) {
   return (
     <>
       <PageBanner title={policy.title} />
-      <div className="container-site max-w-3xl space-y-8 py-12">
+      <div className="container-site-narrow space-y-8 py-12">
         <p className="text-lg leading-relaxed text-muted">{policy.intro}</p>
         {policy.sections.map((s) => (
           <section key={s.heading}>
@@ -491,7 +493,7 @@ function SubscribePage() {
   return (
     <>
       <PageBanner title="Subscribe" subtitle="Enter your email below to receive updates." />
-      <div className="container-site max-w-lg py-12">
+      <div className="container-site-narrow py-12">
         <SimpleForm
           endpoint="/v1/subscribe"
           submitLabel="Subscribe"
@@ -510,7 +512,7 @@ function LoginPage() {
   return (
     <>
       <PageBanner title="Login" subtitle="Member accounts from the WordPress site are not on this stack yet." />
-      <div className="container-site max-w-lg py-12">
+      <div className="container-site-narrow py-12">
         <SimpleForm
           endpoint="/v1/login"
           submitLabel="Login"
@@ -522,7 +524,7 @@ function LoginPage() {
         />
         <p className="mt-4 text-sm text-muted">
           Need meals instead?{" "}
-          <Link href="/book-free-consultation" className="font-semibold text-navy">
+          <Link href="/book-free-consultation" className="font-semibold text-gold transition-all hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]">
             Book a free consultation
           </Link>
           .
@@ -535,7 +537,7 @@ function LoginPage() {
 function CalculatorPage() {
   return (
     <>
-      <PageBanner title="Body Fat Calculator" subtitle="A tape-based estimate to start the conversation with our dieticians." />
+      <PageBanner title="Body fat calculator" subtitle="A tape-based estimate to start the conversation with our dieticians." />
       <BodyFatForm />
     </>
   );
@@ -544,10 +546,10 @@ function CalculatorPage() {
 function OurPoliciesPage() {
   return (
     <>
-      <PageBanner title="Our Policies" />
+      <PageBanner title="Our policies" />
       <div className="container-site grid gap-4 py-12 md:grid-cols-2">
         {Object.entries(policies).map(([slug, p]) => (
-          <Link key={slug} href={`/${slug}`} className="rounded-2xl border border-black/10 p-6 hover:shadow-card">
+          <Link key={slug} href={`/${slug}`} className="link-card">
             <h2 className="font-display text-xl font-semibold">{p.title}</h2>
             <p className="mt-2 line-clamp-3 text-sm text-muted">{p.intro}</p>
           </Link>

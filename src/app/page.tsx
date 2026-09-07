@@ -6,7 +6,7 @@ import { healthGoals } from "@/content/plans";
 export default function HomePage() {
   return (
     <>
-      <section className="bg-[#f3eee6]">
+      <section className="bg-black">
         <Link href="/choose-your-health-goal" className="block" aria-label="Explore meal plans">
           <div className="hidden grid-cols-3 md:grid">
             <img src="/images/hero/left.gif" alt="NutriFreaks meal plans" className="h-full w-full object-cover" />
@@ -21,43 +21,37 @@ export default function HomePage() {
         <HomeCarousel />
       </section>
 
-      <section className="bg-white py-12 md:py-16">
-        <div className="container-site flex flex-col items-center gap-8 md:flex-row md:gap-12">
-          <Image
-            src="/images/consultant.webp"
-            alt="A Nutrition Specialist in consultation through a phone call"
-            width={280}
-            height={280}
-            className="h-40 w-40 rounded-full object-cover shadow-card md:h-56 md:w-56"
-          />
-          <div className="text-center md:text-left">
-            <h2 className="section-title">Free Consultation</h2>
-            <p className="mt-3 text-lg text-muted">Talk to our Nutrition Expert to plan your meals</p>
-            <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row md:items-start">
-              <Link href="/book-free-consultation" className="btn-gold">
-                Book Consultation
-              </Link>
-              <Link href="/choose-your-health-goal" className="btn-outline">
-                Explore Myself
-              </Link>
-            </div>
+      <section className="section-alt py-12 md:py-16">
+        <div className="container-site">
+          <div className="text-center">
+            <h2 className="section-title">Free consultation</h2>
+            <p className="mt-3 text-lg text-muted">Talk to our nutrition expert to plan your meals</p>
+          </div>
+          <HomeVideos />
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link href="/book-free-consultation" className="btn-gold">
+              Book consultation
+            </Link>
+            <Link href="/choose-your-health-goal" className="btn-outline">
+              Explore myself
+            </Link>
           </div>
         </div>
       </section>
 
-      <section id="why-us" className="bg-cream py-16 md:py-20">
+      <section id="why-us" className="py-16 md:py-20">
         <div className="container-site">
           <h2 className="section-title text-center">Why NutriFreaks?</h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyUs.map((item) => (
-              <article key={item.title} className="rounded-2xl bg-white p-6 shadow-card">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink">
+              <article key={item.title} className="card-interactive p-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold text-[#08080d]">
                   <span className="text-xl font-semibold">{item.title.charAt(0)}</span>
                 </div>
                 <h3 className="font-display text-xl font-semibold text-ink">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{item.body}</p>
                 {"href" in item && item.href && (
-                  <Link href={item.href} className="mt-3 inline-block text-sm font-semibold text-navy underline">
+                  <Link href={item.href} className="mt-3 inline-block text-sm font-semibold text-gold underline-offset-2 transition-all hover:underline hover:drop-shadow-[0_0_6px_rgba(255,205,87,0.5)]">
                     Read policy
                   </Link>
                 )}
@@ -67,7 +61,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="section-alt py-16">
         <div className="container-site">
           <h2 className="section-title text-center">Choose a starting point</h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted">
@@ -75,15 +69,17 @@ export default function HomePage() {
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {healthGoals.slice(0, 6).map((g) => (
-              <Link key={g.slug} href={g.href} className="group overflow-hidden rounded-2xl bg-black shadow-card">
-                <Image
-                  src={g.image}
-                  alt={g.title}
-                  width={600}
-                  height={1000}
-                  className="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <p className="px-4 py-3 text-center font-semibold text-white">{g.title}</p>
+              <Link key={g.slug} href={g.href} className="goal-card group">
+                <div className="relative aspect-[9/16] w-full">
+                  <Image
+                    src={g.image}
+                    alt={g.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="goal-card-image"
+                  />
+                </div>
+                <p className="px-4 py-3 text-center font-semibold text-white transition-colors duration-500 group-hover:text-gold">{g.title}</p>
               </Link>
             ))}
           </div>
@@ -98,6 +94,45 @@ export default function HomePage() {
   );
 }
 
+const homeVideos = [
+  {
+    src: "https://videos.files.wordpress.com/X6KBeGMk/nutrifreaks-customized-meals-film-01_45sec_mp4_hd.mp4",
+    poster:
+      "https://videos.files.wordpress.com/X6KBeGMk/nutrifreaks-customized-meals-film-01_45sec_mp4_hd_1080p.original.jpg",
+    title: "Customized meals to your doorstep for fat loss",
+  },
+  {
+    src: "https://videos.files.wordpress.com/sPo0YFDZ/nutrifreaks-customized-meals-film-02_45sec_mp4_hd.mp4",
+    poster:
+      "https://videos.files.wordpress.com/sPo0YFDZ/nutrifreaks-customized-meals-film-02_45sec_mp4_hd_1080p.original.jpg",
+    title: "Customized meals to your doorstep for diabetes reversal",
+  },
+];
+
+function HomeVideos() {
+  return (
+    <div className="mt-8 grid gap-4 md:grid-cols-2 md:gap-5">
+      {homeVideos.map((video) => (
+        <div key={video.src} className="neon-frame aspect-video">
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            preload="metadata"
+            poster={video.poster}
+            title={video.title}
+          >
+            <source src={video.src} type="video/mp4" />
+          </video>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function HomeCarousel() {
   const slides = [
     { src: "/images/plans/fat-loss-poster.jpg", alt: "Fat loss meals" },
@@ -105,17 +140,20 @@ function HomeCarousel() {
     { src: "/images/plans/muscle-poster.jpg", alt: "Muscle gain meals" },
   ];
   return (
-    <div className="grid w-full grid-cols-1 sm:grid-cols-3">
-      {slides.map((s) => (
-        <Image
-          key={s.src}
-          src={s.src}
-          alt={s.alt}
-          width={900}
-          height={984}
-          className="h-full w-full object-cover"
-        />
-      ))}
+    <div className="container-site py-6 md:py-8">
+      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:gap-5">
+        {slides.map((s) => (
+          <div key={s.src} className="neon-frame group">
+            <Image
+              src={s.src}
+              alt={s.alt}
+              width={900}
+              height={984}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

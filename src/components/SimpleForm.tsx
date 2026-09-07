@@ -36,7 +36,7 @@ export function SimpleForm({ endpoint, fields, submitLabel = "Send", successMess
 
   if (done) {
     return (
-      <div className="rounded-2xl bg-cream p-8 text-center">
+      <div className="card-interactive p-8 text-center">
         <p className="font-display text-2xl text-ink">{successMessage}</p>
         <p className="mt-2 text-muted">Our team will get in touch with you shortly.</p>
       </div>
@@ -49,23 +49,13 @@ export function SimpleForm({ endpoint, fields, submitLabel = "Send", successMess
         <label key={f.name} className="block">
           <span className="mb-1.5 block text-sm font-medium text-ink">{f.label}</span>
           {f.textarea ? (
-            <textarea
-              name={f.name}
-              required={f.required}
-              rows={5}
-              className="w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-ink shadow-sm outline-none focus:border-navy"
-            />
+            <textarea name={f.name} required={f.required} rows={5} className="input-field py-3" />
           ) : (
-            <input
-              name={f.name}
-              type={f.type ?? "text"}
-              required={f.required}
-              className="h-11 w-full rounded-lg border border-black/10 bg-white px-4 text-ink shadow-sm outline-none focus:border-navy"
-            />
+            <input name={f.name} type={f.type ?? "text"} required={f.required} className="input-field h-11" />
           )}
         </label>
       ))}
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-red-400">{error}</p>}
       <button type="submit" className="btn-gold w-full md:w-auto disabled:opacity-60" disabled={pending}>
         {pending ? "Sending..." : submitLabel}
       </button>

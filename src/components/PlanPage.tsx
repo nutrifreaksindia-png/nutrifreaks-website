@@ -10,7 +10,7 @@ export function PlanPage({ slug }: { slug: string }) {
     <article>
       <div className="bg-black py-10 text-white md:py-14">
         <div className="container-site">
-          <p className="text-sm uppercase tracking-[0.2em] text-gold">{plan.eyebrow}</p>
+          <p className="text-sm tracking-[0.12em] text-gold">{plan.eyebrow}</p>
           <h1 className="mt-3 font-display text-3xl font-semibold md:text-5xl">{plan.title}</h1>
           <p className="mt-4 max-w-3xl text-lg text-white/75">{plan.summary}</p>
         </div>
@@ -35,7 +35,7 @@ export function PlanPage({ slug }: { slug: string }) {
             </section>
           ))}
           <Link href="/book-free-consultation" className="btn-gold">
-            Book Your Free Consultation
+            Book your free consultation
           </Link>
         </div>
         <aside className="space-y-4">
@@ -44,7 +44,7 @@ export function PlanPage({ slug }: { slug: string }) {
             alt={plan.title}
             width={720}
             height={1200}
-            className="w-full rounded-2xl object-cover shadow-card"
+            className="w-full rounded-2xl border border-white/10 bg-black object-cover transition-all duration-300 hover:scale-[1.01] hover:border-gold/70 hover:shadow-neon"
           />
           {plan.poster && plan.poster !== plan.goalImage && (
             <Image
@@ -52,7 +52,7 @@ export function PlanPage({ slug }: { slug: string }) {
               alt=""
               width={720}
               height={800}
-              className="w-full rounded-2xl object-cover shadow-card"
+              className="w-full rounded-2xl border border-white/10 bg-black object-cover transition-all duration-300 hover:scale-[1.01] hover:border-gold/70 hover:shadow-neon"
             />
           )}
         </aside>
