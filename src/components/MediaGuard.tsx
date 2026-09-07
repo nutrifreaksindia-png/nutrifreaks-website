@@ -20,7 +20,6 @@ export function MediaGuard() {
       document.querySelectorAll("video").forEach((video) => {
         video.setAttribute("controlsList", "nodownload noplaybackrate noremoteplayback");
         video.setAttribute("disablePictureInPicture", "");
-        video.controlsList?.add?.("nodownload");
       });
     };
 
