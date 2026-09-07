@@ -1,0 +1,35 @@
+---
+description: Deploy NutriFreaks website to production when user says "Make it Live"
+alwaysApply: true
+---
+
+# Make it Live — Production Deployment
+
+When the user says **"Make it Live"** (any casing), deploy the latest `main` branch to **web.nutrifreaks.com** without asking for confirmation unless credentials are missing.
+
+## Steps
+
+1. Ensure changes are committed and pushed to `origin/main`.
+2. Run: `python scripts/deploy-live.py` from the project root (requires `all` permissions).
+3. Confirm exit code `0` and output contains `DEPLOY_OK`.
+4. Briefly report success and link https://web.nutrifreaks.com
+
+## Server details
+
+| Item | Value |
+|------|-------|
+| Host | `72.61.224.223` |
+| User | `root` |
+| App dir | `/var/www/web.nutrifreaks.com` |
+| PM2 app | `nutrifreaks-web` |
+| Repo | `https://github.com/nutrifreaksindia-png/nutrifreaks-website.git` |
+
+## Credentials
+
+Read from `.deploy.env` (gitignored). If missing, ask the user for SSH host/user/password — never commit credentials.
+
+## Deploy flow (automated by script)
+
+Clone to `/tmp/nutrifreaks-website-deploy` → `npm install` → `npm run build` → rsync standalone output to app dir → copy static + public → `pm2 restart nutrifreaks-web`
+
+**Important:** Use `npm install` (not `npm ci` with `NODE_ENV=production`) so devDependencies like TypeScript are available for the build.

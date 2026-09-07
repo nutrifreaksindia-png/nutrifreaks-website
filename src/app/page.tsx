@@ -13,9 +13,9 @@ export default function HomePage() {
             <img src="/images/hero/mid.gif" alt="" className="h-full w-full object-cover" />
             <img src="/images/hero/right.gif" alt="" className="h-full w-full object-cover" />
           </div>
-          <div className="grid grid-cols-1 md:hidden">
-            <img src="/images/hero/left.gif" alt="NutriFreaks meal plans" className="w-full" />
-            <img src="/images/hero/right-phone.gif" alt="" className="w-full" />
+          <div className="grid grid-cols-2 md:hidden">
+            <img src="/images/hero/left.gif" alt="NutriFreaks meal plans" className="h-full w-full object-cover" />
+            <img src="/images/hero/right-phone.gif" alt="" className="h-full w-full object-cover" />
           </div>
         </Link>
         <HomeCarousel />
@@ -121,6 +121,8 @@ function HomeVideos() {
             loop
             playsInline
             controls
+            controlsList="nodownload noplaybackrate noremoteplayback"
+            disablePictureInPicture
             preload="metadata"
             poster={video.poster}
             title={video.title}
@@ -139,18 +141,26 @@ function HomeCarousel() {
     { src: "/images/plans/diabetes-poster.jpg", alt: "Diabetes reversal meals" },
     { src: "/images/plans/muscle-poster.jpg", alt: "Muscle gain meals" },
   ];
+  const loop = [...slides, ...slides];
+
   return (
-    <div className="container-site py-6 md:py-8">
-      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-3 md:gap-5">
-        {slides.map((s) => (
-          <div key={s.src} className="neon-frame group">
-            <Image
-              src={s.src}
-              alt={s.alt}
-              width={900}
-              height={984}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-            />
+    <div className="overflow-hidden py-6 md:py-8">
+      <div className="poster-marquee flex w-[600%] md:w-[200%]">
+        {loop.map((s, i) => (
+          <div
+            key={`${s.src}-${i}`}
+            className="w-[16.666%] shrink-0 px-2 md:px-2.5"
+            aria-hidden={i >= slides.length}
+          >
+            <div className="neon-frame">
+              <Image
+                src={s.src}
+                alt={i >= slides.length ? "" : s.alt}
+                width={900}
+                height={984}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         ))}
       </div>

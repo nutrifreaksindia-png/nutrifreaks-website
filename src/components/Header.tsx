@@ -18,19 +18,19 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/95 text-white backdrop-blur-md">
-      <div className="container-site flex items-center justify-between gap-4 py-3 md:py-4">
+      <div className="container-site flex items-center justify-between gap-5 py-4 md:py-5">
         <Link href="/" className="shrink-0" aria-label="NutriFreaks home">
           <Image
             src="/images/logo-white.png"
             alt="NutriFreaks"
-            width={180}
-            height={90}
-            className="h-10 w-auto md:h-[52px]"
+            width={240}
+            height={120}
+            className="h-12 w-auto md:h-[72px]"
             priority
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 xl:gap-10 lg:flex" aria-label="Primary">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -42,7 +42,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <Link
             href="/login"
             aria-label="Login"
@@ -50,12 +50,12 @@ export function Header() {
           >
             <UserIcon />
           </Link>
-          <Link href="/book-free-consultation" className="btn-gold !px-5 !py-2.5 text-sm md:!px-7 md:!py-3">
+          <Link href="/book-free-consultation" className="btn-gold !px-6 !py-3 text-base md:!px-8 md:!py-3.5">
             Free consultation
           </Link>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center lg:hidden"
+            className="inline-flex h-12 w-12 items-center justify-center lg:hidden"
             aria-label="Open menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -72,7 +72,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-lg px-3 py-3 text-white transition-all duration-200 hover:bg-white/5 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]"
+                  className="block rounded-lg px-3 py-3 text-lg text-white transition-all duration-200 hover:bg-white/5 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
@@ -80,7 +80,7 @@ export function Header() {
               </li>
             ))}
             <li>
-              <Link href="/login" className="block rounded-lg px-3 py-3 text-white/80" onClick={() => setOpen(false)}>
+              <Link href="/login" className="block rounded-lg px-3 py-3 text-lg text-white/80" onClick={() => setOpen(false)}>
                 Login
               </Link>
             </li>
@@ -93,7 +93,7 @@ export function Header() {
 
 function UserIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 448 512" className="h-5 w-5 fill-current">
+    <svg aria-hidden="true" viewBox="0 0 448 512" className="h-6 w-6 fill-current">
       <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z" />
     </svg>
   );
@@ -101,7 +101,7 @@ function UserIcon() {
 
 function MenuIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-current">
       <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
     </svg>
   );
@@ -109,7 +109,7 @@ function MenuIcon() {
 
 function CloseIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-current">
       <path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z" />
     </svg>
   );

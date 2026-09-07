@@ -25,6 +25,16 @@ body {
   background-color: #000000;
 }
 
+img,
+video,
+picture,
+canvas {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: auto;
+}
+
 ::selection {
   background: #ffcd57;
   color: #000000;
@@ -80,7 +90,7 @@ body {
   }
 
   .nav-link {
-    @apply text-[15px] font-medium transition-all duration-200 hover:text-gold hover:drop-shadow-[0_0_10px_rgba(255,205,87,0.75)];
+    @apply text-base font-medium transition-all duration-200 hover:text-gold hover:drop-shadow-[0_0_10px_rgba(255,205,87,0.75)] md:text-lg;
   }
 
   .input-field {
@@ -94,6 +104,20 @@ body {
   .page-banner {
     @apply border-b border-white/10 bg-black py-12 text-white md:py-16;
   }
+}
+
+@keyframes poster-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.poster-marquee {
+  animation: poster-marquee 36s linear infinite;
+  will-change: transform;
 }
 
 select.input-field option {

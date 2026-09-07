@@ -6,6 +6,7 @@ out
 *.log
 .env
 .env*.local
+.deploy.env
 tsconfig.tsbuildinfo
 content-posts.json
 backend/data

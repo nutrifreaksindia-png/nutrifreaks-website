@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import { MediaGuard } from "@/components/MediaGuard";
 import { site } from "@/content/site";
 
 const poppins = Poppins({
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="content">{children}</main>
         <Footer />
         <WhatsAppWidget />
+        <MediaGuard />
       </body>
     </html>
   );
