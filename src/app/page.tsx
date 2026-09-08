@@ -1,23 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AutoPlayVideo } from "@/components/AutoPlayVideo";
+import { HeroBanner } from "@/components/HeroBanner";
 import { whyUs } from "@/content/site";
 import { healthGoals } from "@/content/plans";
 
 export default function HomePage() {
   return (
     <>
+      <link rel="preload" as="image" href="/images/hero/left.gif" fetchPriority="high" />
+      <link rel="preload" as="image" href="/images/hero/right-phone.gif" media="(max-width: 767px)" />
+      <link rel="preload" as="image" href="/images/hero/right.gif" media="(min-width: 768px)" />
+      <link rel="preload" as="image" href="/images/hero/mid.gif" media="(min-width: 768px)" />
+      <link rel="preconnect" href="https://videos.files.wordpress.com" />
       <section className="bg-black">
-        <Link href="/choose-your-health-goal" className="block" aria-label="Explore meal plans">
-          <div className="hidden grid-cols-3 md:grid">
-            <img src="/images/hero/left.gif" alt="NutriFreaks meal plans" className="h-full w-full object-cover" />
-            <img src="/images/hero/mid.gif" alt="" className="h-full w-full object-cover" />
-            <img src="/images/hero/right.gif" alt="" className="h-full w-full object-cover" />
-          </div>
-          <div className="grid grid-cols-2 md:hidden">
-            <img src="/images/hero/left.gif" alt="NutriFreaks meal plans" className="h-full w-full object-cover" />
-            <img src="/images/hero/right-phone.gif" alt="" className="h-full w-full object-cover" />
-          </div>
-        </Link>
+        <HeroBanner />
         <HomeCarousel />
       </section>
 
@@ -39,7 +36,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="why-us" className="py-16 md:py-20">
+      <section id="why-us" className="defer-paint py-16 md:py-20">
         <div className="container-site">
           <h2 className="section-title text-center">Why NutriFreaks?</h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -61,7 +58,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-alt py-16">
+      <section className="defer-paint section-alt py-16">
         <div className="container-site">
           <h2 className="section-title text-center">Choose a starting point</h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted">
@@ -75,6 +72,7 @@ export default function HomePage() {
                     src={g.image}
                     alt={g.title}
                     fill
+                    quality={90}
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="goal-card-image"
                   />
@@ -114,21 +112,7 @@ function HomeVideos() {
     <div className="mt-8 grid gap-4 md:grid-cols-2 md:gap-5">
       {homeVideos.map((video) => (
         <div key={video.src} className="neon-frame aspect-video">
-          <video
-            className="h-full w-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            controlsList="nodownload noplaybackrate noremoteplayback"
-            disablePictureInPicture
-            preload="metadata"
-            poster={video.poster}
-            title={video.title}
-          >
-            <source src={video.src} type="video/mp4" />
-          </video>
+          <AutoPlayVideo src={video.src} poster={video.poster} title={video.title} />
         </div>
       ))}
     </div>
@@ -158,6 +142,9 @@ function HomeCarousel() {
                 alt={i >= slides.length ? "" : s.alt}
                 width={900}
                 height={984}
+                quality={90}
+                priority={i < 3}
+                sizes="(min-width: 768px) 33vw, 90vw"
                 className="h-full w-full object-cover"
               />
             </div>

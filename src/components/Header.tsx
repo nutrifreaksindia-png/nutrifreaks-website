@@ -17,15 +17,17 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/95 text-white backdrop-blur-md">
-      <div className="container-site flex items-center justify-between gap-5 py-4 md:py-5">
+    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-black text-white">
+      <div className="container-site flex items-center justify-between gap-4 py-2.5 md:py-3">
         <Link href="/" className="shrink-0" aria-label="NutriFreaks home">
           <Image
             src="/images/logo-white.png"
             alt="NutriFreaks"
-            width={240}
-            height={120}
-            className="h-12 w-auto md:h-[72px]"
+            width={800}
+            height={185}
+            quality={90}
+            sizes="(min-width: 768px) 420px, 200px"
+            className="h-[52px] w-auto max-w-[46vw] object-contain object-left md:h-[100px] md:max-w-none"
             priority
           />
         </Link>
@@ -50,7 +52,7 @@ export function Header() {
           >
             <UserIcon />
           </Link>
-          <Link href="/book-free-consultation" className="btn-gold !px-6 !py-3 text-base md:!px-8 md:!py-3.5">
+          <Link href="/book-free-consultation" className="btn-gold hidden !px-6 !py-2.5 text-sm md:inline-flex md:!px-7 md:!py-3">
             Free consultation
           </Link>
           <button
@@ -72,7 +74,7 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-lg px-3 py-3 text-lg text-white transition-all duration-200 hover:bg-white/5 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]"
+                  className="block rounded-lg px-3 py-2.5 text-sm text-white transition-all duration-200 hover:bg-white/5 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(255,205,87,0.5)]"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
@@ -80,7 +82,7 @@ export function Header() {
               </li>
             ))}
             <li>
-              <Link href="/login" className="block rounded-lg px-3 py-3 text-lg text-white/80" onClick={() => setOpen(false)}>
+              <Link href="/login" className="block rounded-lg px-3 py-2.5 text-sm text-white/80" onClick={() => setOpen(false)}>
                 Login
               </Link>
             </li>

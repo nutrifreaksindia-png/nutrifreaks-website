@@ -16,24 +16,12 @@ export function MediaGuard() {
       if (isProtectedMedia(event.target)) event.preventDefault();
     };
 
-    const lockVideos = () => {
-      document.querySelectorAll("video").forEach((video) => {
-        video.setAttribute("controlsList", "nodownload noplaybackrate noremoteplayback");
-        video.setAttribute("disablePictureInPicture", "");
-      });
-    };
-
     document.addEventListener("contextmenu", blockMenu);
     document.addEventListener("dragstart", blockDrag);
-    lockVideos();
-
-    const observer = new MutationObserver(lockVideos);
-    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       document.removeEventListener("contextmenu", blockMenu);
       document.removeEventListener("dragstart", blockDrag);
-      observer.disconnect();
     };
   }, []);
 

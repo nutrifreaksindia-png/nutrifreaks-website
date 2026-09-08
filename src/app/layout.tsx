@@ -1,10 +1,9 @@
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WhatsAppWidget } from "@/components/WhatsAppWidget";
-import { MediaGuard } from "@/components/MediaGuard";
 import { site } from "@/content/site";
 
 const poppins = Poppins({
@@ -12,7 +11,13 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
   display: "swap",
+  preload: true,
 });
+
+const WhatsAppWidget = dynamic(() =>
+  import("@/components/WhatsAppWidget").then((m) => m.WhatsAppWidget),
+);
+const MediaGuard = dynamic(() => import("@/components/MediaGuard").then((m) => m.MediaGuard));
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://web.nutrifreaks.com"),

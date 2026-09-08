@@ -44,6 +44,8 @@ export function PlanPage({ slug }: { slug: string }) {
             alt={plan.title}
             width={720}
             height={1200}
+            quality={90}
+            sizes="(min-width: 1024px) 360px, 100vw"
             className="w-full rounded-2xl border border-white/10 bg-black object-cover transition-all duration-300 hover:scale-[1.01] hover:border-gold/70 hover:shadow-neon"
           />
           {plan.poster && plan.poster !== plan.goalImage && (
@@ -52,6 +54,8 @@ export function PlanPage({ slug }: { slug: string }) {
               alt=""
               width={720}
               height={800}
+              quality={90}
+              sizes="(min-width: 1024px) 360px, 100vw"
               className="w-full rounded-2xl border border-white/10 bg-black object-cover transition-all duration-300 hover:scale-[1.01] hover:border-gold/70 hover:shadow-neon"
             />
           )}

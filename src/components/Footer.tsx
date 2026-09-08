@@ -40,7 +40,15 @@ export function Footer() {
     <footer className="border-t border-white/[0.06] bg-black text-white">
       <div className="container-site grid gap-10 py-14 md:grid-cols-3">
         <div>
-          <Image src="/images/logo-white.png" alt="NutriFreaks" width={180} height={80} className="h-12 w-auto" />
+          <Image
+            src="/images/logo-white.png"
+            alt="NutriFreaks"
+            width={800}
+            height={185}
+            quality={90}
+            sizes="180px"
+            className="h-12 w-auto"
+          />
           <h4 className="mt-6 font-display text-xl font-semibold">Join the club</h4>
           <p className="mt-2 text-sm text-white/70">Get updates on special events and our new posts!</p>
           {done ? (

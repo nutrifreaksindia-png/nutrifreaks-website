@@ -232,6 +232,8 @@ function ConsultationPage() {
           alt="Nutrition specialist"
           width={640}
           height={640}
+          quality={90}
+          sizes="(min-width: 1024px) 50vw, 100vw"
           className="w-full rounded-2xl border border-white/10 bg-black object-cover transition-all duration-300 hover:scale-[1.01] hover:border-gold/70 hover:shadow-neon"
         />
       </div>
@@ -252,6 +254,7 @@ function GoalsPage() {
                   src={g.image}
                   alt={g.title}
                   fill
+                  quality={90}
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="goal-card-image"
                 />
@@ -280,7 +283,15 @@ function MealPlansPage() {
       <div className="container-site grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
         {mealPlanCards.map((c) => (
           <Link key={c.href} href={c.href} className="card-interactive group overflow-hidden">
-            <Image src={c.image} alt={c.title} width={600} height={900} className="aspect-[2/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+            <Image
+              src={c.image}
+              alt={c.title}
+              width={600}
+              height={900}
+              quality={90}
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="aspect-[2/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            />
             <h2 className="p-4 font-display text-lg font-semibold text-ink transition-colors group-hover:text-gold">{c.title}</h2>
           </Link>
         ))}
@@ -371,6 +382,8 @@ function GalleryPage() {
             alt="NutriFreaks gallery"
             width={800}
             height={1000}
+            quality={90}
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="gallery-item"
           />
         ))}

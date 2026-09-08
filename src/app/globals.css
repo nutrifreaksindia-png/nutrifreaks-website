@@ -26,13 +26,23 @@ body {
 }
 
 img,
-video,
 picture,
 canvas {
   -webkit-user-drag: none;
   user-select: none;
   -webkit-touch-callout: none;
-  pointer-events: auto;
+}
+
+video {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel {
+  display: none !important;
 }
 
 ::selection {
@@ -90,7 +100,7 @@ canvas {
   }
 
   .nav-link {
-    @apply text-base font-medium transition-all duration-200 hover:text-gold hover:drop-shadow-[0_0_10px_rgba(255,205,87,0.75)] md:text-lg;
+    @apply text-[13px] font-medium transition-all duration-200 hover:text-gold hover:drop-shadow-[0_0_10px_rgba(255,205,87,0.75)] xl:text-sm;
   }
 
   .input-field {
@@ -118,6 +128,11 @@ canvas {
 .poster-marquee {
   animation: poster-marquee 36s linear infinite;
   will-change: transform;
+}
+
+.defer-paint {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
 }
 
 select.input-field option {
