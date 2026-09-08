@@ -8,31 +8,26 @@ type Props = {
   title: string;
 };
 
+const cropStyle = {
+  position: "absolute" as const,
+  left: 0,
+  top: "-3%",
+  width: "100%",
+  height: "106%",
+  objectFit: "cover" as const,
+};
+
 export function AutoPlayVideo({ src, poster, title }: Props) {
-  const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [ready, setReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        setReady(true);
-        observer.disconnect();
-      },
-      { rootMargin: "240px 0px", threshold: 0.01 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
+    setMounted(true);
   }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !ready) return;
+    if (!video || !mounted) return;
 
     const keepPlaying = () => {
       void video.play();
@@ -42,25 +37,26 @@ export function AutoPlayVideo({ src, poster, title }: Props) {
     void video.play();
 
     return () => video.removeEventListener("pause", keepPlaying);
-  }, [ready]);
+  }, [mounted]);
 
   return (
-    <div ref={wrapRef} className="h-full w-full bg-black">
-      {ready ? (
+    <div className="relative h-full min-h-[180px] w-full overflow-hidden bg-black">
+      {mounted ? (
         <video
           ref={videoRef}
-          className="pointer-events-none h-full w-full object-cover"
+          className="pointer-events-none"
+          style={cropStyle}
           src={src}
           poster={poster}
           muted
           loop
-          autoPlay
           playsInline
-          disablePictureInPicture
-          preload="none"
+          preload="metadata"
           title={title}
         />
-      ) : null}
+      ) : (
+        <img src={poster} alt="" className="pointer-events-none" style={cropStyle} />
+      )}
     </div>
   );
 }

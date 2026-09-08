@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AutoPlayVideo } from "@/components/AutoPlayVideo";
 import { HeroBanner } from "@/components/HeroBanner";
+import { PosterCarousel } from "@/components/PosterCarousel";
 import { whyUs } from "@/content/site";
 import { healthGoals } from "@/content/plans";
 
@@ -15,7 +16,7 @@ export default function HomePage() {
       <link rel="preconnect" href="https://videos.files.wordpress.com" />
       <section className="bg-black">
         <HeroBanner />
-        <HomeCarousel />
+        <PosterCarousel />
       </section>
 
       <section className="section-alt py-12 md:py-16">
@@ -111,46 +112,10 @@ function HomeVideos() {
   return (
     <div className="mt-8 grid gap-4 md:grid-cols-2 md:gap-5">
       {homeVideos.map((video) => (
-        <div key={video.src} className="neon-frame aspect-video">
+        <div key={video.src} className="video-frame">
           <AutoPlayVideo src={video.src} poster={video.poster} title={video.title} />
         </div>
       ))}
-    </div>
-  );
-}
-
-function HomeCarousel() {
-  const slides = [
-    { src: "/images/plans/fat-loss-poster.jpg", alt: "Fat loss meals" },
-    { src: "/images/plans/diabetes-poster.jpg", alt: "Diabetes reversal meals" },
-    { src: "/images/plans/muscle-poster.jpg", alt: "Muscle gain meals" },
-  ];
-  const loop = [...slides, ...slides];
-
-  return (
-    <div className="overflow-hidden py-6 md:py-8">
-      <div className="poster-marquee flex w-[600%] md:w-[200%]">
-        {loop.map((s, i) => (
-          <div
-            key={`${s.src}-${i}`}
-            className="w-[16.666%] shrink-0 px-2 md:px-2.5"
-            aria-hidden={i >= slides.length}
-          >
-            <div className="neon-frame">
-              <Image
-                src={s.src}
-                alt={i >= slides.length ? "" : s.alt}
-                width={900}
-                height={984}
-                quality={90}
-                priority={i < 3}
-                sizes="(min-width: 768px) 33vw, 90vw"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
