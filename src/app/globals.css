@@ -121,6 +121,15 @@ video::-webkit-media-controls-panel {
   contain-intrinsic-size: auto 720px;
 }
 
+.policy-highlight {
+  color: #ffcd57 !important;
+  font-weight: 700 !important;
+  text-shadow:
+    0 0 6px rgba(255, 205, 87, 0.95),
+    0 0 14px rgba(255, 205, 87, 0.7),
+    0 0 28px rgba(255, 205, 87, 0.45);
+}
+
 @keyframes poster-marquee {
   from {
     transform: translateX(0);

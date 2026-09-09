@@ -111,17 +111,40 @@ function PageBanner({ title, subtitle }: { title: string; subtitle?: string }) {
     <div className="page-banner">
       <div className="container-site">
         <h1 className="font-display text-3xl font-semibold md:text-5xl">{title}</h1>
-        {subtitle && <p className="mt-3 max-w-2xl text-lg text-white/70">{subtitle}</p>}
+        {subtitle && <p className="mt-3 text-lg text-white/70">{subtitle}</p>}
       </div>
     </div>
   );
+}
+
+function renderPolicyText(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong
+          key={i}
+          className="policy-highlight font-bold text-[#ffcd57]"
+          style={{
+            color: "#ffcd57",
+            fontWeight: 700,
+            textShadow:
+              "0 0 6px rgba(255, 205, 87, 0.95), 0 0 14px rgba(255, 205, 87, 0.7), 0 0 28px rgba(255, 205, 87, 0.45)",
+          }}
+        >
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return <span key={i}>{part}</span>;
+  });
 }
 
 function AboutPage() {
   return (
     <>
       <PageBanner title="About us" subtitle="Precision-nutrition meals, delivered with care." />
-      <div className="container-site-narrow space-y-8 py-12 text-lg leading-relaxed text-muted">
+      <div className="container-site space-y-8 py-12 text-lg leading-relaxed text-muted">
         <p>
           NutriFreaks is a precision-nutrition meal service dedicated to helping individuals achieve sustainable health
           outcomes through scientifically designed food. Our approach combines dietician expertise, high-quality
@@ -453,7 +476,7 @@ function BlogPost({ post }: { post: ReturnType<typeof getPosts>[number] }) {
   return (
     <article>
       <PageBanner title={post.title} subtitle={post.categories.join(" · ")} />
-      <div className="container-site-narrow py-12">
+      <div className="container-site py-12">
         <p className="text-sm text-muted">{post.date} · NutriFreaks</p>
         <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink">
           {post.paragraphs.map((para) =>
@@ -479,16 +502,16 @@ function PolicyPage({ slug }: { slug: string }) {
   return (
     <>
       <PageBanner title={policy.title} />
-      <div className="container-site-narrow space-y-8 py-12">
-        <p className="text-lg leading-relaxed text-muted">{policy.intro}</p>
+      <div className="container-site space-y-8 py-12">
+        <p className="text-lg leading-relaxed text-muted">{renderPolicyText(policy.intro)}</p>
         {policy.sections.map((s) => (
           <section key={s.heading}>
             <h2 className="font-display text-2xl font-semibold text-ink">{s.heading}</h2>
-            {s.body && <p className="mt-3 leading-relaxed text-muted">{s.body}</p>}
+            {s.body && <p className="mt-3 leading-relaxed text-muted">{renderPolicyText(s.body)}</p>}
             {s.bullets && (
               <ul className="mt-3 space-y-2 text-muted">
                 {s.bullets.map((b) => (
-                  <li key={b}>• {b}</li>
+                  <li key={b}>• {renderPolicyText(b)}</li>
                 ))}
               </ul>
             )}
@@ -564,7 +587,7 @@ function OurPoliciesPage() {
         {Object.entries(policies).map(([slug, p]) => (
           <Link key={slug} href={`/${slug}`} className="link-card">
             <h2 className="font-display text-xl font-semibold">{p.title}</h2>
-            <p className="mt-2 line-clamp-3 text-sm text-muted">{p.intro}</p>
+            <p className="mt-2 line-clamp-3 text-sm text-muted">{renderPolicyText(p.intro)}</p>
           </Link>
         ))}
       </div>
