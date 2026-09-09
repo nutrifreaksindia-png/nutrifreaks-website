@@ -44,16 +44,13 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <Link
             href="/login"
-            aria-label="Login"
-            className="hidden rounded-full p-2 text-white transition-all duration-200 hover:text-gold hover:drop-shadow-[0_0_10px_rgba(255,205,87,0.75)] md:inline-flex"
+            aria-label="Sign in"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white transition-all duration-200 hover:text-gold hover:drop-shadow-[0_0_10px_rgba(255,205,87,0.75)]"
           >
             <UserIcon />
-          </Link>
-          <Link href="/book-free-consultation" className="btn-gold hidden !px-6 !py-2.5 text-sm md:inline-flex md:!px-7 md:!py-3">
-            Free consultation
           </Link>
           <button
             type="button"
@@ -83,7 +80,7 @@ export function Header() {
             ))}
             <li>
               <Link href="/login" className="block rounded-lg px-3 py-2.5 text-sm text-white/80" onClick={() => setOpen(false)}>
-                Login
+                Sign in
               </Link>
             </li>
           </ul>

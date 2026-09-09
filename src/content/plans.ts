@@ -5,10 +5,18 @@ export type Plan = {
   summary: string;
   image: string;
   poster?: string;
+  portraitImage?: string;
+  squareImage?: string;
   goalImage: string;
   sections: { heading: string; body?: string; bullets?: string[] }[];
   cta?: string;
 };
+
+export function getPlanImages(plan: Plan): { portrait: string; square: string } {
+  const portrait = plan.portraitImage || plan.image || plan.goalImage;
+  const square = plan.squareImage || plan.poster || plan.goalImage || plan.image;
+  return { portrait, square };
+}
 
 export const healthGoals: {
   slug: string;
@@ -36,6 +44,8 @@ export const plans: Record<string, Plan> = {
       "Our Low-Carb Meal Plans are created for sustainable fat loss, steady energy, and clean eating. We prepare every meal fresh using balanced portions of protein, healthy fats, and fiber-rich vegetables, while keeping carbohydrates controlled.",
     image: "/images/plans/fat-loss.webp",
     poster: "/images/plans/fat-loss-poster.jpg",
+    portraitImage: "/images/plans/fat-loss.webp",
+    squareImage: "/images/plans/fat-loss-poster.jpg",
     goalImage: "/images/goals/fat-loss.jpg",
     sections: [
       {
@@ -89,6 +99,8 @@ export const plans: Record<string, Plan> = {
       "Our Diabetes Reversal Meals are designed to support healthier, more stable blood sugar levels. Each meal is prepared with low-glycemic ingredients and balanced nutrition to help you experience smoother energy, better control and easier daily consistency.",
     image: "/images/plans/diabetes.webp",
     poster: "/images/plans/diabetes-poster.jpg",
+    portraitImage: "/images/plans/diabetes.webp",
+    squareImage: "/images/plans/diabetes-poster.jpg",
     goalImage: "/images/goals/diabetes.jpg",
     sections: [
       {
@@ -122,6 +134,8 @@ export const plans: Record<string, Plan> = {
       "Our Muscle Gain Meals are created to help you build lean muscle, improve recovery and support better performance. These meals balance protein, energy-rich carbs and the right fats to help you progress consistently with your training.",
     image: "/images/plans/muscle.webp",
     poster: "/images/plans/muscle-poster.jpg",
+    portraitImage: "/images/plans/muscle.webp",
+    squareImage: "/images/plans/muscle-poster.jpg",
     goalImage: "/images/goals/muscle.jpg",
     sections: [
       {
@@ -159,7 +173,10 @@ export const plans: Record<string, Plan> = {
     eyebrow: "Everyday wellness",
     summary:
       "A healthy life begins with calm, consistent choices. Our Healthy Lifestyle Meals are designed for individuals who wish to nourish their bodies with thoughtful, balanced food — meals that promote clarity, comfort and long-term wellbeing.",
-    image: "/images/plans/lifestyle.jpg",
+    image: "/images/goals/lifestyle.jpg",
+    poster: "/images/plans/lifestyle.jpg",
+    portraitImage: "/images/goals/lifestyle.jpg",
+    squareImage: "/images/plans/lifestyle.jpg",
     goalImage: "/images/goals/lifestyle.jpg",
     sections: [
       {
@@ -191,6 +208,8 @@ export const plans: Record<string, Plan> = {
     summary:
       "This is a gentle, reliable meal service made to nourish you and your baby. We prepare comforting, nutrient-focused meals so you can enjoy more energy, easier digestion and less mealtime stress.",
     image: "/images/plans/pregnancy.webp",
+    portraitImage: "/images/plans/pregnancy.webp",
+    squareImage: "/images/goals/pregnancy.jpg",
     goalImage: "/images/goals/pregnancy.jpg",
     sections: [
       {
@@ -218,7 +237,10 @@ export const plans: Record<string, Plan> = {
     eyebrow: "Growing with care",
     summary:
       "Growing children need more than just food — they need the right balance of nourishment to support learning, immunity, and steady physical development. Our Kids Nutrition Meals are designed to make healthy eating simple, enjoyable, and dependable for everyday growth.",
-    image: "/images/plans/kids.jpg",
+    image: "/images/goals/kids.jpg",
+    poster: "/images/plans/kids.jpg",
+    portraitImage: "/images/goals/kids.jpg",
+    squareImage: "/images/plans/kids.jpg",
     goalImage: "/images/goals/kids.jpg",
     sections: [
       {
@@ -238,6 +260,8 @@ export const plans: Record<string, Plan> = {
     summary:
       "Our Elderly & Kids Meals are designed to offer comfort, safety, and nourishment for the two groups that need it the most. We prepare meals that support steady growth for children and gentle, easy-to-digest nutrition for elders.",
     image: "/images/goals/elderly.jpg",
+    portraitImage: "/images/goals/elderly.jpg",
+    squareImage: "/images/gallery/elderly-old.png",
     goalImage: "/images/goals/elderly.jpg",
     sections: [
       {
@@ -273,6 +297,8 @@ export const plans: Record<string, Plan> = {
     summary:
       "Our Vitamins & Minerals Optimisation meals are designed to support everyday health by addressing common nutritional gaps through food-first nutrition. Each meal focuses on naturally nutrient-rich ingredients that help improve energy levels, immunity, bone health, and overall metabolic balance.",
     image: "/images/goals/vitamins.jpg",
+    portraitImage: "/images/goals/vitamins.jpg",
+    squareImage: "/images/goals/vitamins.jpg",
     goalImage: "/images/goals/vitamins.jpg",
     sections: [
       {
@@ -292,6 +318,8 @@ export const plans: Record<string, Plan> = {
     summary:
       "Nutrition that fits you — not the other way around. Our Customized Diet Meals are tailored to your body, goals and lifestyle. We combine clinical insight with practical cooking to deliver meals that are effective, enjoyable and easy to follow.",
     image: "/images/plans/custom.webp",
+    portraitImage: "/images/plans/custom.webp",
+    squareImage: "/images/gallery/custom-old.png",
     goalImage: "/images/gallery/custom-old.png",
     sections: [
       {
@@ -324,6 +352,8 @@ export const plans: Record<string, Plan> = {
     summary:
       "At NutriFreaks, we know that one size doesn’t fit all. That’s why we offer fully customizable meal plans tailored to your unique dietary needs and preferences.",
     image: "/images/gallery/custom-1.jpg",
+    portraitImage: "/images/gallery/custom-1.jpg",
+    squareImage: "/images/gallery/custom-old.png",
     goalImage: "/images/gallery/custom-old.png",
     sections: [
       {
@@ -348,6 +378,8 @@ export const plans: Record<string, Plan> = {
     summary:
       "Recovery meals are designed to support healing with easy-to-digest, nutrient-dense food. We personalise texture, portion size and timing so meals support recovery rather than causing discomfort.",
     image: "/images/goals/recovery.jpg",
+    portraitImage: "/images/goals/recovery.jpg",
+    squareImage: "/images/goals/recovery.jpg",
     goalImage: "/images/goals/recovery.jpg",
     sections: [
       {
